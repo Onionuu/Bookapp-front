@@ -9,15 +9,15 @@ tools:context=".index.search">
     android:id="@+id/rl_title"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/color_d81e06">
 
     <ImageView
         android:id="@+id/search_back"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:padding="15dp"
-        android:src="@drawable/search_back2" />
+        android:src="@drawable/abc_vector_test" />
     <EditText
         android:id="@+id/search_search"
         android:layout_width="0dp"

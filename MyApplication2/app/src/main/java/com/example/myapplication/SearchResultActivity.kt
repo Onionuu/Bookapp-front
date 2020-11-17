@@ -57,7 +57,6 @@ class SearchResultActivity: AppCompatActivity() {
                                 println(primaryImage)
                                 val title=jsonObject.getString("title")
                                 val price=jsonObject.getString("price")
-
                                 val file=
                                     File("/sdcard/Pictures/"+System.currentTimeMillis()+".png");
                                 if(!file.exists()){
