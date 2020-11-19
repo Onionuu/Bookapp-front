@@ -16,7 +16,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.lang.Exception
 import com.example.myapplication.util.BaseUtil.hexStringToBytes
-
+///hihih
 class SearchResultActivity: AppCompatActivity() {
     private val goodsList = ArrayList<Goods>()
 
