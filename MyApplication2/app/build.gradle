@@ -73,5 +73,10 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':imagepicker')
+    //implementation 'com.contrarywind:Android-PickerView:4.1.4'
+
+   // implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:2.0.0'
+    implementation project(':WheelPicker')
+
 
 }

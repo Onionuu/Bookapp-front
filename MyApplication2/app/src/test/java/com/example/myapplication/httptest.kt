@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.util.Log
+import android.widget.Toast
 import com.alibaba.fastjson.JSONArray
 import okhttp3.*
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -7,6 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.example.myapplication.model.EditPostModel
+import com.example.myapplication.model.RegisterModel
 import com.example.myapplication.model.ResearchResultModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -45,26 +48,26 @@ class httptest {
 //        return d
 //    }
 
-    companion object{
-        private fun charToByte(c: Char): Byte {
-
-            return "0123456789ABCDEF".indexOf(c).toByte()
-        }
-        fun hexStringToBytes(hexString: String?): ByteArray? {
-            var hexString = hexString
-            if (hexString == null || hexString == "") {
-                return null
-            }
-            hexString = hexString.toUpperCase()
-            val length = hexString.length / 2
-            val hexChars = hexString.toCharArray()
-            val d = ByteArray(length)
-            for (i in 0..length - 1) {
-                val pos = i * 2
-                d[i] = (charToByte(hexChars[pos]).toInt() shl 4 or charToByte(hexChars[pos + 1]).toInt()).toByte()
-            }
-            return d
-        }
+    companion object {
+        //        private fun charToByte(c: Char): Byte {
+//
+//            return "0123456789ABCDEF".indexOf(c).toByte()
+//        }
+//        fun hexStringToBytes(hexString: String?): ByteArray? {
+//            var hexString = hexString
+//            if (hexString == null || hexString == "") {
+//                return null
+//            }
+//            hexString = hexString.toUpperCase()
+//            val length = hexString.length / 2
+//            val hexChars = hexString.toCharArray()
+//            val d = ByteArray(length)
+//            for (i in 0..length - 1) {
+//                val pos = i * 2
+//                d[i] = (charToByte(hexChars[pos]).toInt() shl 4 or charToByte(hexChars[pos + 1]).toInt()).toByte()
+//            }
+//            return d
+//        }
         @JvmStatic
         fun main(args: Array<String>) {
 //            val editPostModel=EditPostModel()
@@ -98,62 +101,87 @@ class httptest {
 //
 //            })
 
+            /**
+             * 搜索测试
+             */
+//            val ResearchResultModel =ResearchResultModel()
+//            ResearchResultModel.getResearchResult("标题").enqueue(object :Callback<ResponseBody>{
+//                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+//                    println("查询失败")
+//
+//                }
+//
+//                override fun onResponse(
+//                    call: Call<ResponseBody>,
+//                    response: Response<ResponseBody>
+//                ) {
+//                    val jsonData=response.body()?.string()
+//
+//                    println(jsonData)
+//                    if (jsonData!=null){
+//                        var jsonArray: JSONArray? =null
+//                        try {
+//                            jsonArray= JSONArray.parse(jsonData) as JSONArray?
+//                        }catch(e:Exception){
+//                            e.printStackTrace()
+//                        }
+//
+//                        if (jsonArray != null) {
+//                            for(i in 0 until jsonArray.size){
+//                                val jsonObject = jsonArray.getJSONObject(i)
+//                                val primaryImage=hexStringToBytes(jsonObject.getString("primaryImage"));
+//                                println(primaryImage)
+////                                val title=jsonObject.getString("title")
+////                                val price=jsonObject.getString("price")
+//                                val file=File("/home/wu/AndroidStudioProjects/MyApplication2/app/src/images/1.png");
+//                                if(!file.exists())
+//                                    file.createNewFile()
+//                                val bufferedInputStream=ByteArrayInputStream(primaryImage)
+//                                val fileOutputStream =FileOutputStream(file);
+//                                var i:Int=bufferedInputStream.read()
+//                                while (i!=-1){
+//                                    fileOutputStream.write(i)
+//                                    i=bufferedInputStream.read()
+//                                }
+//                                fileOutputStream.flush()
+//                                bufferedInputStream.close()
+//                                fileOutputStream.close()
+////                                println(title)
+////                                println(price)
+//                            }
+//                        }
+//                    }
+//                }
+//
+//            })
+//        }
 
-            val ResearchResultModel =ResearchResultModel()
-            ResearchResultModel.getResearchResult("标题").enqueue(object :Callback<ResponseBody>{
+            /**
+             * 注册测试
+             */
+            val RegisterModel = RegisterModel()
+            var map = HashMap<String, String>()
+            map.put("logname", "myname")
+            map.put("password", "mypassword")
+            map.put("again_ password", "mypassword")
+            map.put("city", "guangzhou")
+            map.put("major", "cs")
+            map.put("school", "scnu")
+            RegisterModel.registerPost(map).enqueue(object : Callback<ResponseBody> {
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                    println("查询失败")
-
+                    Log.e("registertest", "onFailure: 注册失败")
                 }
 
                 override fun onResponse(
                     call: Call<ResponseBody>,
                     response: Response<ResponseBody>
                 ) {
-                    val jsonData=response.body()?.string()
-
-                    println(jsonData)
-                    if (jsonData!=null){
-                        var jsonArray: JSONArray? =null
-                        try {
-                            jsonArray= JSONArray.parse(jsonData) as JSONArray?
-                        }catch(e:Exception){
-                            e.printStackTrace()
-                        }
-
-                        if (jsonArray != null) {
-                            for(i in 0 until jsonArray.size){
-                                val jsonObject = jsonArray.getJSONObject(i)
-                                val primaryImage=hexStringToBytes(jsonObject.getString("primaryImage"));
-                                println(primaryImage)
-//                                val title=jsonObject.getString("title")
-//                                val price=jsonObject.getString("price")
-                                val file=File("/home/wu/AndroidStudioProjects/MyApplication2/app/src/images/1.png");
-                                if(!file.exists())
-                                    file.createNewFile()
-                                val bufferedInputStream=ByteArrayInputStream(primaryImage)
-                                val fileOutputStream =FileOutputStream(file);
-                                var i:Int=bufferedInputStream.read()
-                                while (i!=-1){
-                                    fileOutputStream.write(i)
-                                    i=bufferedInputStream.read()
-                                }
-                                fileOutputStream.flush()
-                                bufferedInputStream.close()
-                                fileOutputStream.close()
-//                                println(title)
-//                                println(price)
-                            }
-                        }
-                    }
+                    print(response.body()?.string())
                 }
 
             })
+
         }
-
-
-
-
     }
 }
 

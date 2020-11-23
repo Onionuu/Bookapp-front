@@ -13,4 +13,12 @@ interface ApiService {
 
     @GET("SearchServlet")
     fun getSearchResult(@Query("words") words:String):Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("registerServlet")
+    fun postRegisterRequest(@FieldMap map:Map<String,String>):Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("loginServlet")
+    fun postLoginRequest(@Field("logname") logname:String,@Field("password") password:String):Call<ResponseBody>
 }

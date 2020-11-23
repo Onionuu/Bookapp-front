@@ -1,17 +1,21 @@
 package com.example.myapplication
 
+
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.model.EditPostModel
-import com.google.gson.JsonObject
+import cn.qqtheme.framework.picker.OptionPicker
+import cn.qqtheme.framework.util.ConvertUtils
+import cn.qqtheme.framework.widget.WheelView
 
+import com.example.myapplication.model.EditPostModel
 
 import kotlinx.android.synthetic.main.publish_test.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -26,9 +30,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 
 class PublishTestActivity : AppCompatActivity() {
@@ -40,6 +41,7 @@ class PublishTestActivity : AppCompatActivity() {
     private lateinit var rvImage: RecyclerView
     private lateinit var mAdapter: ImageAdapter
     private lateinit var images:ArrayList<String>
+    //private lateinit var sortTx:TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,22 +64,12 @@ class PublishTestActivity : AppCompatActivity() {
                 .setMaxSelectCount(9)//如果设置大于0
                 .start(this, REQUEST_CODE); // 打开相册
         }
+        sortTx.setOnClickListener(){
+            onOptionPicker()
+        }
     }
 
-//    override fun onClick(v: View?) {
-//        when (v!!.id) {
-//            R.id.addImageButton ->
-//                //多选(最多9张)
-//                ImageSelector.builder()
-//                    //.useCamera(add_camera.isChecked()) // 使用拍照
-//                    //.setCrop(add_crop.isChecked())  // 使用图片剪切
-//                    //.setCropRatio(1.0f) // 图片剪切的宽高比,默认1.0f。宽固定为手机屏幕的宽。
-//                    //.setSingle(add_single.isChecked())  //设置是否单选
-//                    .canPreview(true) //是否点击放大图片查看,，默认为true
-//                    .setMaxSelectCount(9)//如果设置大于0
-//                    .start(this, REQUEST_CODE); // 打开相册
-//        }
-//    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         Log.e("TAG", "onActivityResult: " )
     Log.e("TAG", "resultCode: "+requestCode )
@@ -94,10 +86,10 @@ class PublishTestActivity : AppCompatActivity() {
     fun publish(){
         val editPostModel= EditPostModel()
         var  partMap = HashMap<String,RequestBody>()
-        partMap.put("publisherid", "4".toRequestBody())
-        partMap.put("title",titleText.text.toString().toRequestBody())
-        partMap.put("detail",detailText.text.toString().toRequestBody())
-        partMap.put("price",priceText.text.toString().toRequestBody())
+        partMap["publisherid"] = "4".toRequestBody()
+        partMap["title"] = titleText.text.toString().toRequestBody()
+        partMap["detail"] = detailText.text.toString().toRequestBody()
+        partMap["price"] = priceText.text.toString().toRequestBody()
         var list=ArrayList<MultipartBody.Part>()
         var selectList=ArrayList<File>()
         for (f in images){
@@ -130,5 +122,24 @@ class PublishTestActivity : AppCompatActivity() {
         })
 
     }
+    fun onOptionPicker() {
+        val picker = OptionPicker(
+            this, ConvertUtils.toString(assets.open("sort.txt")).split(",")
+        )
+        picker.setCanceledOnTouchOutside(false)
+        picker.setDividerRatio(WheelView.DividerConfig.FILL)
+        picker.setShadowColor(Color.RED, 40)
+        picker.selectedIndex = 1
+        picker.setCycleDisable(true)
+        picker.setTextSize(11)
+        picker.setOnOptionPickListener(object : OptionPicker.OnOptionPickListener() {
+            override fun onOptionPicked(index: Int, item: String) {
+                //Toast.makeText(this@PublishTestActivity, "\"index=$index, item=$item\"", Toast.LENGTH_SHORT).show()
+                sortTx.text=item
+            }
+        })
+        picker.show()
+    }
+
 
 }
