@@ -31,7 +31,7 @@
             android:background="@drawable/search_edittext_shape"
             android:drawableStart="@drawable/ic_baseline_search_24"
             android:drawablePadding="5dp"
-            android:focusable="false"
+
             android:hint="请输入关键字"
             android:textSize="16sp" />
 

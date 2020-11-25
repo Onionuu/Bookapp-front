@@ -8,6 +8,7 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.myapplication.ui.mine.MineFragment
 
 import com.example.myapplication.ui.shouye.IndexFragment
 import kotlinx.android.synthetic.main.activity_main1.*
@@ -46,7 +47,7 @@ class MainActivity1 :AppCompatActivity() {
         syFragment = IndexFragment.getNewInstance()
         //sqFragment = SheQuFragment.getNewInstance()
         //xxFragment = XiaoXiFragment.getNewInstance()
-        //wdFragment = WoDeFragment.getNewInstance()
+        wdFragment = MineFragment.getNewInstance()
         //初始化选择，并选择首页作为默认选项
         transview(syFragment , VIEW_SHOUYE_INDEX)
     }
@@ -74,7 +75,7 @@ class MainActivity1 :AppCompatActivity() {
             R.id.id_home -> transview(syFragment!!, VIEW_SHOUYE_INDEX)
 //            R.id.id_service -> transview(sqFragment, MainActivity.VIEW_SHEQU_INDEX)
 //            R.id.id_nav_btxiaoxi -> transview(xxFragment, MainActivity.VIEW_XIAOXI_INDEX)
-//            R.id.id_nav_btwode -> transview(wdFragment, MainActivity.VIEW_WODE_INDEX)
+            R.id.id_mine -> transview(wdFragment, VIEW_WODE_INDEX)
             R.id.id_publish -> {
 //                if (null == publish) {
 //                    publish = Publish(this)
