@@ -1,31 +1,16 @@
 package com.example.myapplication
 
+
+import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import com.alibaba.fastjson.JSONArray
-import okhttp3.*
-import okhttp3.RequestBody.Companion.toRequestBody
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.example.myapplication.model.RegisterModel
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.example.myapplication.model.EditPostModel
-import com.example.myapplication.model.RegisterModel
-import com.example.myapplication.model.ResearchResultModel
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonArray
-import com.google.gson.JsonObject
-
-
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import okhttp3.RequestBody.Companion.asRequestBody
-
-
-
-import java.io.*
-import java.lang.Exception
 
 class httptest {
 //    private fun charToByte(c: Char): Byte {
@@ -68,6 +53,7 @@ class httptest {
 //            }
 //            return d
 //        }
+
         @JvmStatic
         fun main(args: Array<String>) {
 //            val editPostModel=EditPostModel()

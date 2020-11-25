@@ -9,7 +9,7 @@ tools:context=".index.search">
     android:id="@+id/rl_title"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:background="@color/color_d81e06">
+    android:background="@color/theme_color">
 
     <ImageView
         android:id="@+id/search_back"
@@ -26,7 +26,7 @@ tools:context=".index.search">
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@drawable/search_edittext_shape"
-        android:drawableStart="@mipmap/search_icon"
+        android:drawableStart="@drawable/ic_baseline_search_24"
         android:drawablePadding="5dp"
         android:focusable="false"
         android:text="请输入关键字"
