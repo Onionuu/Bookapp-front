@@ -84,12 +84,13 @@ class SearchResultActivity: AppCompatActivity() {
                             }
                         }
                     }
+                    val adapter = GoodsAdapter(this@SearchResultActivity, R.layout.goods_item, goodsList)
+                    listView.adapter = adapter
                 }
 
             })
         }
-        val adapter = GoodsAdapter(this, R.layout.goods_item, goodsList)
-        listView.adapter = adapter
+
     }
 
 //    private fun initGoods() {
