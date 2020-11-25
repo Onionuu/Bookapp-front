@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,6 +21,10 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        supportActionBar?.hide()
+        register_titleBack.setOnClickListener {
+            finish()
+        }
         register_cityInput.setOnClickListener {
             createDialog("城市")
         }
@@ -76,10 +81,12 @@ class RegisterActivity : AppCompatActivity() {
             if (s=="城市"){
             setItems(arrayCity, DialogInterface.OnClickListener { dialog, which ->
                 register_cityInput.text = arrayCity[which]
+                register_cityInput.typeface = Typeface.DEFAULT_BOLD
                  })
             }else if (s=="学校"){
                 setItems(arrayCollege, DialogInterface.OnClickListener { dialog, which ->
                     register_collegeInput.text = arrayCollege[which]
+                    register_collegeInput.typeface = Typeface.DEFAULT_BOLD
                 })
             }else   {
                 setMessage("加载出错")

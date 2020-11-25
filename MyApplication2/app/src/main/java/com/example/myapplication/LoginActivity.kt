@@ -21,14 +21,14 @@ class LoginActivity :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        registerClickTextView.setOnClickListener {
-            val intent = Intent(this,RegisterActivity::class.java)
-            startActivity(intent)
+        supportActionBar?.hide()
+        titleBack.setOnClickListener {
+            finish()
         }
         loginButton.setOnClickListener(){
             val model=LoginModel()
-            val logname=username.text.toString()
-            val password=password.text.toString()
+            val logname=accountEdit.text.toString()
+            val password=passwordEdit.text.toString()
             model.loginPost(logname,password).enqueue(object : Callback<ResponseBody> {
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                     Toast.makeText(this@LoginActivity, "登录失败，请检查网络", Toast.LENGTH_SHORT).show()
@@ -65,6 +65,11 @@ class LoginActivity :AppCompatActivity(){
 
 
             })
+        }
+
+        registerClickTextView.setOnClickListener {
+            val intent = Intent(this,RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 

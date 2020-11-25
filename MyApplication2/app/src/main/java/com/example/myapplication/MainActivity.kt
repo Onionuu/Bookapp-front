@@ -35,8 +35,9 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("words",data)
             startActivity(intent)
         }
-        temp_loginButton.setOnClickListener(){
-            val intent=Intent(this,LoginActivity::class.java)
+
+        temp_loginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
