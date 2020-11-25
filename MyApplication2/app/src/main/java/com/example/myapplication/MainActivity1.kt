@@ -46,7 +46,7 @@ class MainActivity1 :AppCompatActivity() {
         //绑定四个单选框
         syFragment = IndexFragment.getNewInstance()
         //sqFragment = SheQuFragment.getNewInstance()
-        //xxFragment = XiaoXiFragment.getNewInstance()
+        xxFragment = MessageFragment.getNewInstance()
         wdFragment = MineFragment.getNewInstance()
         //初始化选择，并选择首页作为默认选项
         transview(syFragment , VIEW_SHOUYE_INDEX)
@@ -74,7 +74,7 @@ class MainActivity1 :AppCompatActivity() {
         when (view.id) {
             R.id.id_home -> transview(syFragment!!, VIEW_SHOUYE_INDEX)
 //            R.id.id_service -> transview(sqFragment, MainActivity.VIEW_SHEQU_INDEX)
-//            R.id.id_nav_btxiaoxi -> transview(xxFragment, MainActivity.VIEW_XIAOXI_INDEX)
+            R.id.id_message -> transview(xxFragment, VIEW_XIAOXI_INDEX)
             R.id.id_mine -> transview(wdFragment, VIEW_WODE_INDEX)
             R.id.id_publish -> {
 //                if (null == publish) {

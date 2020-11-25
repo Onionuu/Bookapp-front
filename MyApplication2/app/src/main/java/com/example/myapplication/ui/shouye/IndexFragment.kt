@@ -34,17 +34,11 @@ class IndexFragment:Fragment() {
         }
 
 
-
-
-
-
-
-
-
         private fun initGoods(){
-        repeat(9){
-
-            goodslist.add(Goods("真好看",File("/sdcard/Pictures/touxiang.jpg"),"30"))
+        repeat(3){
+            goodslist.add(Goods("8成新口腔颌面外科学 人民卫生出版社",File("/sdcard/Pictures/xiazai2.jpg"),"￥10"))
+            goodslist.add(Goods("9成新生物化学与生物分子学 人民卫生出版社 华师石牌面交交交交交",File("/sdcard/Pictures/xiazai1.jpg"),"￥9.5"))
+            goodslist.add(Goods("8成新c程序设计",File("/sdcard/Pictures/xiazai3.jpg"),"￥10"))
         }
     }
 
@@ -79,9 +73,9 @@ class IndexFragment:Fragment() {
         super.onStart()
         //
         val images = ArrayList<String>()
-        images.add("http://kwimg2.kuwo.cn/star/upload/66/85/1575256374021_.jpg")
-        images.add("http://kwimg2.kuwo.cn/star/upload/71/68/1575818166158_.jpg")
-        images.add("http://kwimg1.kuwo.cn/star/upload/68/54/1575429173078_.jpg")
+        images.add("http://img.mp.itc.cn/upload/20160617/3fd573ef3a9a4fd0abec604cf8fd6364_th.png")
+        images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606313437590&di=0cc661ad0b2f5ff2f00d6173154cfa52&imgtype=0&src=http%3A%2F%2Fdpic.tiankong.com%2Fcs%2Fa0%2FQJ7104628743.jpg")
+        images.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1606313476010&di=d443415c73d69404aa39e6a5bc928824&imgtype=0&src=http%3A%2F%2Fwww.chinabuildingcentre.com%2Fuploadfile%2F2013%2F1106%2F20131106052826778.jpg")
         banner = view?.findViewById(R.id.banner) as Banner
         //设置图片加载器
         //设置图片加载器
