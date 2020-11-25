@@ -38,7 +38,8 @@
     <color name="orange">#ffa500</color>
     <color name="pink">#ffc0cb</color>
     <color name="green">#FF34A350</color>
-
+    <color name="little_grey">#6DE7F6</color>
+    <color name="white1">#E6F0F1</color>
 
     <!-- **************************pickerview选择器常用颜色值********************************** -->
     <color name="pickerview_divider_color">#9D9D9D</color>

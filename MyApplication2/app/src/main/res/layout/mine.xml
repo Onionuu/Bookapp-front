@@ -19,7 +19,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/touxiang" />
+                android:background="@drawable/headimage" />
 
             <View
                 android:id="@+id/split"
@@ -81,18 +81,19 @@
                 android:id="@+id/collection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
+                android:layout_marginRight="-120dp"
                 android:layout_marginTop="120dp"
+                android:layout_toLeftOf="@+id/split"
                 android:text="收藏"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/collection_number"
-                android:layout_width="wrap_content"
+                android:layout_width="38dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="120dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="-180dp"
                 android:layout_toLeftOf="@+id/split"
                 android:text="0"
                 android:textColor="@color/white"
@@ -102,8 +103,9 @@
                 android:id="@+id/history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="252dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="120dp"
+                android:layout_toRightOf="@+id/split"
                 android:text="历史"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
@@ -112,8 +114,9 @@
                 android:id="@+id/history_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="322dp"
+                android:layout_marginLeft="110dp"
                 android:layout_marginTop="120dp"
+                android:layout_toRightOf="@+id/split"
                 android:text="0"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
@@ -140,6 +143,7 @@
                     android:gravity="center"
                     android:text="我的交易"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="18sp" />
             </LinearLayout>
             <LinearLayout
@@ -152,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/wofabude"
+                    android:drawableTop="@drawable/ic_baseline_library_books_60"
                     android:gravity="center"
                     android:text="我发布的"
                     android:textColor="@color/black"
@@ -164,7 +168,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/womaichude"
+                    android:drawableTop="@drawable/ic_baseline_monetization_on_60"
                     android:gravity="center"
                     android:text="我卖出的"
                     android:textColor="@color/black"
@@ -174,7 +178,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/womaidaode"
+                    android:drawableTop="@drawable/ic_baseline_shopping_cart_60"
                     android:gravity="center"
                     android:text="我买到的"
                     android:textColor="@color/black"
@@ -202,6 +206,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="更多"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -214,7 +219,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@drawable/shezhi"
+                    android:drawableTop="@drawable/ic_baseline_settings_60"
                     android:gravity="center"
                     android:text="设置"
                     android:textColor="@color/black"
@@ -224,7 +229,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@drawable/fankui"
+                    android:drawableTop="@drawable/ic_baseline_rate_review_60"
                     android:gravity="center"
                     android:text="反馈"
                     android:textColor="@color/black"
@@ -234,7 +239,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@drawable/guifan"
+                    android:drawableTop="@drawable/ic_baseline_text_format_60"
                     android:gravity="center"
                     android:text="发布规范"
                     android:textColor="@color/black"
@@ -250,7 +255,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/love_image"
+                    android:drawableTop="@drawable/ic_baseline_help_60"
                     android:gravity="center"
                     android:text="关于软件"
                     android:textColor="@color/black"
@@ -262,9 +267,9 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/love_image"
+                    android:drawableTop="@drawable/ic_baseline_share_60"
                     android:gravity="center"
-                    android:text="待开发"
+                    android:text="分享"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
                 <TextView
@@ -273,9 +278,9 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/love_image"
+                    android:drawableTop="@drawable/ic_baseline_thumbs_up_down_60"
                     android:gravity="center"
-                    android:text="待开发"
+                    android:text="给我们评论"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -289,7 +294,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/love_image"
+                    android:drawableTop="@drawable/ic_baseline_backup_60"
                     android:gravity="center"
                     android:text="待开发"
                     android:textColor="@color/black"
@@ -301,7 +306,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/love_image"
+                    android:drawableTop="@drawable/ic_baseline_backup_60"
                     android:gravity="center"
                     android:text="待开发"
                     android:textColor="@color/black"
@@ -312,7 +317,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@mipmap/love_image"
+                    android:drawableTop="@drawable/ic_baseline_backup_60"
                     android:gravity="center"
                     android:text="待开发"
                     android:textColor="@color/black"

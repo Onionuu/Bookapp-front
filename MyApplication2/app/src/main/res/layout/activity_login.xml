@@ -9,6 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/white"
     >
 
 
@@ -16,8 +17,7 @@
         android:id="@+id/titleBack"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/close"
-                />
+        android:background="@drawable/close" />
 
 
     <TextView
@@ -94,6 +94,7 @@
         android:layout_height="42dp"
         android:layout_gravity="start"
         android:layout_marginTop="68dp"
+        android:background="@color/btn_pressed_color"
         android:text="@string/action_sign_in"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +110,7 @@
         android:clickable="true"
         android:text="@string/action_register"
         android:textColor="@color/blue"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
