@@ -1,130 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/register_usernameTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_usernameTextView"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="用户名" />
+        android:layout_marginTop="14dp"
+        android:text="用户名"
+        app:layout_constraintEnd_toStartOf="@+id/register_usernameInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/register_usernameInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请输入用户名"
-            />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/register_usernameInput"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_passwdTextView"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="密码" />
+        android:hint="请输入用户名"
+        app:layout_constraintBaseline_toBaselineOf="@+id/register_usernameTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_usernameTextView" />
 
-        <EditText
-            android:id="@+id/register_passwdInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请输入密码"
-            />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/register_passwdTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_passwdConfirmText"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="确认密码" />
+        android:text="密码"
+        app:layout_constraintBaseline_toBaselineOf="@+id/register_passwdInput"
+        app:layout_constraintEnd_toStartOf="@+id/register_passwdInput"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/register_passwdConfirmInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请重新输入一次密码"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/register_passwdInput"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_cityText"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="城市" />
+        android:hint="请输入密码"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_passwdTextView"
+        app:layout_constraintTop_toBottomOf="@+id/register_usernameInput" />
 
-        <TextView
-            android:id="@+id/register_cityInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:hint="请选择城市"
-            android:gravity="right"
-            />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/register_passwdConfirmText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_collegeText"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="学校" />
+        android:text="确认密码"
+        app:layout_constraintBaseline_toBaselineOf="@+id/register_passwdConfirmInput"
+        app:layout_constraintEnd_toStartOf="@+id/register_passwdConfirmInput"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/register_collegeInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请选择学校"
-            android:clickable="true"
-            android:gravity="right"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/register_passwdConfirmInput"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/register_majorText"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="专业" />
+        android:hint="请重新输入一次密码"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_passwdConfirmText"
+        app:layout_constraintTop_toBottomOf="@+id/register_passwdInput" />
 
-        <EditText
-            android:id="@+id/register_majorInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请输入专业"
-            android:clickable="true"
-            android:gravity="right"
-            />
-    </LinearLayout>
+
+    <TextView
+        android:id="@+id/register_cityText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="城市"
+        app:layout_constraintBaseline_toBaselineOf="@+id/register_cityInput"
+        app:layout_constraintEnd_toStartOf="@+id/register_cityInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/register_cityInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="right"
+        android:hint="请选择城市"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_cityText"
+        app:layout_constraintTop_toBottomOf="@+id/register_passwdConfirmInput" />
+
+
+    <TextView
+        android:id="@+id/register_collegeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="学校"
+        app:layout_constraintBaseline_toBaselineOf="@+id/register_collegeInput"
+        app:layout_constraintEnd_toStartOf="@+id/register_collegeInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/register_collegeInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="right"
+        android:hint="请选择学校"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_collegeText"
+        app:layout_constraintTop_toBottomOf="@+id/register_cityText" />
+
+
+    <TextView
+        android:id="@+id/register_majorText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="专业"
+        app:layout_constraintBaseline_toBaselineOf="@+id/register_majorInput"
+        app:layout_constraintEnd_toStartOf="@+id/register_majorInput"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/register_majorInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:clickable="true"
+        android:gravity="right"
+        android:hint="请输入专业"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register_majorText"
+        app:layout_constraintTop_toBottomOf="@+id/register_collegeText" />
+
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="350dp"
-        android:text="注册" />
+        android:layout_marginBottom="114dp"
+        android:text="注册"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
