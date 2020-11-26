@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.io.File
 
 class GoodsAdapter1 (val goodslist:List<Goods>):RecyclerView.Adapter<GoodsAdapter1.Viewholder>(){
     inner class Viewholder(view:View):RecyclerView.ViewHolder(view){
@@ -22,7 +23,7 @@ class GoodsAdapter1 (val goodslist:List<Goods>):RecyclerView.Adapter<GoodsAdapte
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
         val goods = goodslist[position]
-        val file = goods.image
+        val file = File(goods.image)
         val bitmap = BitmapFactory.decodeFile(file.toString())
         holder.goodsImage.setImageBitmap(bitmap)
         holder.goodsName.text=goods.name

@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -46,6 +47,7 @@ class PublishTestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.publish_test)
         publishButton.setOnClickListener(){
             publish()
@@ -80,8 +82,13 @@ class PublishTestActivity : AppCompatActivity() {
             var isCameraImage = data.getBooleanExtra(ImageSelector.IS_CAMERA_IMAGE,false)
             Log.e("TAG", "hererererre ")
             mAdapter?.refresh(images)
-
         }
+        if (images.size>0){
+            addImageButton.visibility=View.INVISIBLE
+        }else{
+            addImageButton.visibility=View.VISIBLE
+        }
+
     }
     fun publish(){
         val editPostModel= EditPostModel()

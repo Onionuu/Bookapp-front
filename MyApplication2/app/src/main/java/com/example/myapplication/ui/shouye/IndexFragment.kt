@@ -36,9 +36,9 @@ class IndexFragment:Fragment() {
 
         private fun initGoods(){
         repeat(3){
-            goodslist.add(Goods("8成新口腔颌面外科学 人民卫生出版社",File("/sdcard/Pictures/xiazai2.jpg"),"￥10"))
-            goodslist.add(Goods("9成新生物化学与生物分子学 人民卫生出版社 华师石牌面交交交交交",File("/sdcard/Pictures/xiazai1.jpg"),"￥9.5"))
-            goodslist.add(Goods("8成新c程序设计",File("/sdcard/Pictures/xiazai3.jpg"),"￥10"))
+            goodslist.add(Goods("8成新口腔颌面外科学 人民卫生出版社","/sdcard/Pictures/xiazai2.jpg","￥10"))
+            goodslist.add(Goods("9成新生物化学与生物分子学 人民卫生出版社 华师石牌面交交交交交","/sdcard/Pictures/xiazai1.jpg","￥9.5"))
+            goodslist.add(Goods("8成新c程序设计","/sdcard/Pictures/xiazai3.jpg","￥10"))
         }
     }
 

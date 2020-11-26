@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import java.io.File
 
 class GoodsAdapter(activity: Activity, val resourceId: Int, data: List<Goods>) : ArrayAdapter<Goods>(activity, resourceId, data) {
 
@@ -29,7 +30,7 @@ class GoodsAdapter(activity: Activity, val resourceId: Int, data: List<Goods>) :
         val goods = getItem(position) // 获取当前项的Goods实例
         if (goods != null) {
 
-            val file = goods.image
+            val file = File(goods.image)
             val bitmap = BitmapFactory.decodeFile(file.toString())
             viewHolder.GoodsImage.setImageBitmap(bitmap)
             viewHolder.GoodsName.text = goods.name

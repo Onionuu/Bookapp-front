@@ -56,30 +56,34 @@ class SearchResultActivity: AppCompatActivity() {
                             for(i in 0 until jsonArray.size){
                                 val jsonObject = jsonArray.getJSONObject(i)
                                 val primaryImage=hexStringToBytes(jsonObject.getString("primaryImage"))
-                                println(primaryImage)
+                                val imagetype=jsonObject.getString("imagetype")
+                                val goodsid=jsonObject.getString("goodsid")
                                 val title=jsonObject.getString("title")
                                 val price=jsonObject.getString("price")
+                                var imagepath=getString(R.string.search_result_image_path)
+                                imagepath= "$imagepath$goodsid.$imagetype"
                                 val file=
-                                    File("/sdcard/Pictures/"+System.currentTimeMillis()+".png");
+                                    File(imagepath);
                                 if(!file.exists()){
                                     try {
                                         file.createNewFile()
+                                        val bufferedInputStream= ByteArrayInputStream(primaryImage)
+                                        val fileOutputStream = FileOutputStream(file);
+                                        var i:Int=bufferedInputStream.read()
+                                        while (i!=-1){
+                                            fileOutputStream.write(i)
+                                            i=bufferedInputStream.read()
+                                        }
+                                        fileOutputStream.flush()
+                                        bufferedInputStream.close()
+                                        fileOutputStream.close()
                                     }catch (e:Exception){
                                         e.printStackTrace()
                                     }
                                 }
 
-                                val bufferedInputStream= ByteArrayInputStream(primaryImage)
-                                val fileOutputStream = FileOutputStream(file);
-                                var i:Int=bufferedInputStream.read()
-                                while (i!=-1){
-                                    fileOutputStream.write(i)
-                                    i=bufferedInputStream.read()
-                                }
-                                fileOutputStream.flush()
-                                bufferedInputStream.close()
-                                fileOutputStream.close()
-                                val goods= Goods(title,file,price)
+
+                                val goods= Goods(title,imagepath,price)
                                 goodsList.add(goods)
                             }
                         }
