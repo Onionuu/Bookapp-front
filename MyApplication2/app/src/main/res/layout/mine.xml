@@ -63,7 +63,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="19dp"
                 android:layout_marginBottom="10dp"
-                android:src="@drawable/more" />
+                android:src="@drawable/ic_baseline_settings_24" />
 
             <TextView
                 android:id="@+id/username"
@@ -219,9 +219,9 @@
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:drawableTop="@drawable/ic_baseline_settings_60"
+                    android:drawableTop="@drawable/ic_baseline_picture_in_picture_60"
                     android:gravity="center"
-                    android:text="设置"
+                    android:text="认证"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
                 <TextView
