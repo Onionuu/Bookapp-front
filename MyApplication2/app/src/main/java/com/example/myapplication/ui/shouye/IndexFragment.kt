@@ -9,24 +9,45 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.alibaba.fastjson.JSONArray
 import com.example.myapplication.*
+import com.example.myapplication.ViewModel.IndexViewModel
+import com.example.myapplication.model.Goods
+import com.example.myapplication.model.ScreenSearchModel
+import com.example.myapplication.util.BaseUtil
 import com.youth.banner.Banner
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_shouye.*
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.await
+import java.io.ByteArrayInputStream
 import java.io.File
+import java.io.FileOutputStream
 
 
 class IndexFragment:Fragment() {
-     var rootView: View? =null
+    var rootView: View? =null
 
+    lateinit var indexViewModel:IndexViewModel
+    lateinit var adapter1: GoodsAdapter1
     lateinit var banner: Banner
-
     private val goodslist=ArrayList<Goods>()
 
     lateinit var recyclerView : RecyclerView
+    var city=""
+    var university=""
+    var keywords=""
+    val num=30
+    val index=0
+    var sort=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,13 +55,7 @@ class IndexFragment:Fragment() {
         }
 
 
-        private fun initGoods(){
-        repeat(3){
-            goodslist.add(Goods("8成新口腔颌面外科学 人民卫生出版社","/sdcard/Pictures/xiazai2.jpg","￥10"))
-            goodslist.add(Goods("9成新生物化学与生物分子学 人民卫生出版社 华师石牌面交交交交交","/sdcard/Pictures/xiazai1.jpg","￥9.5"))
-            goodslist.add(Goods("8成新c程序设计","/sdcard/Pictures/xiazai3.jpg","￥10"))
-        }
-    }
+
 
 
     companion object{
@@ -58,6 +73,17 @@ class IndexFragment:Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+//        peopleViewModel.getAllPeos()
+//            .observe(this, object : Observer<List<People?>?> {
+//                fun onChanged(people: List<People?>?) {
+//                    adapter.setPeos(people)
+//                    //数据改变刷新视图
+//                    adapter.notifyDataSetChanged()
+//                }
+//            })
+
+
         if (rootView==null){
             rootView=inflater.inflate(R.layout.fragment_shouye,container,false)
         }
@@ -86,14 +112,15 @@ class IndexFragment:Fragment() {
         //banner设置方法全部调用完毕时最后调用
         //banner设置方法全部调用完毕时最后调用
         banner.start()
-        initGoods()
+
+
+        setupViewModel()
+        indexViewModel.getData()
         recyclerView= view!!.findViewById(R.id.index_recycleview)
         val layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager=layoutManager
-        val adapter1=GoodsAdapter1(goodslist)
+        adapter1=GoodsAdapter1(indexViewModel.goodslist.value?: ArrayList())
         recyclerView.adapter=adapter1
-
-
         val search=view?.findViewById(R.id.index_search) as EditText
         search.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event -> //当actionId == XX_SEND 或者 XX_DONE时都触发
             //或者event.getKeyCode == ENTER 且 event.getAction == ACTION_DOWN时也触发
@@ -109,5 +136,14 @@ class IndexFragment:Fragment() {
             }
             false
         })
+    }
+
+    private fun setupViewModel(){
+        indexViewModel= ViewModelProviders.of(this).get(IndexViewModel::class.java)
+        indexViewModel.goodslist.observe(this, Observer<MutableList<Goods>> { adapter1.update(it) })
+    }
+    override fun onResume() {
+        super.onResume()
+        indexViewModel.getData()
     }
 }

@@ -83,11 +83,7 @@ class PublishTestActivity : AppCompatActivity() {
             Log.e("TAG", "hererererre ")
             mAdapter?.refresh(images)
         }
-        if (images.size>0){
-            addImageButton.visibility=View.INVISIBLE
-        }else{
-            addImageButton.visibility=View.VISIBLE
-        }
+
 
     }
     fun publish(){

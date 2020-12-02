@@ -21,4 +21,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST("loginServlet")
     fun postLoginRequest(@Field("logname") logname:String,@Field("password") password:String):Call<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("screenSearchServlet")
+    fun getScreenSearchResult(@FieldMap map: Map<String, String>):Call<ResponseBody>
 }
