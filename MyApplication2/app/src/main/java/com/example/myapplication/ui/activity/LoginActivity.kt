@@ -1,12 +1,12 @@
-package com.example.myapplication
+package com.example.myapplication.ui.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.MainActivity
+import com.example.myapplication.R
 import com.example.myapplication.model.LoginModel
 import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.ResponseBody
@@ -15,6 +15,7 @@ import retrofit2.Call
 
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.log
 
 class LoginActivity :AppCompatActivity(){
 
@@ -49,8 +50,10 @@ class LoginActivity :AppCompatActivity(){
                             val prefs=getPreferences(Context.MODE_PRIVATE)
                             val editor=prefs.edit()
                             editor.putString("token",token)
+                            editor.putString("logname", logname)
                             editor.apply()
-                            val intent= Intent(this@LoginActivity,MainActivity::class.java)
+                            val intent= Intent(this@LoginActivity,
+                                MainActivity1::class.java)
                             startActivity(intent)
                             Toast.makeText(this@LoginActivity, "登录成功", Toast.LENGTH_SHORT).show()
                         }
@@ -68,7 +71,8 @@ class LoginActivity :AppCompatActivity(){
         }
 
         registerClickTextView.setOnClickListener {
-            val intent = Intent(this,RegisterActivity::class.java)
+            val intent = Intent(this,
+                RegisterActivity::class.java)
             startActivity(intent)
         }
     }

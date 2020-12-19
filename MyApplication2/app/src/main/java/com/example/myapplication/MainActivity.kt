@@ -2,15 +2,18 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.myapplication.ui.activity.LoginActivity
+import com.example.myapplication.ui.activity.PublishTestActivity
+import com.example.myapplication.ui.activity.SearchResultActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.youth.banner.Banner
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
+import java.net.URI
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val ws=JWebSocketClient(URI("ws://echo.websocket.org"))
+        Thread{
+            try {
+                ws.connectBlocking()
+            }catch (e: Exception){
+                e.printStackTrace()
+            }
+        }.start()
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
@@ -30,12 +41,14 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         button2.setOnClickListener(){
-            val intent=Intent(this,PublishTestActivity::class.java)
+            val intent=Intent(this,
+                PublishTestActivity::class.java)
             startActivity(intent)
         }
         button3.setOnClickListener(){
             val data=searchView.query.toString()
-            val intent=Intent(this,SearchResultActivity::class.java)
+            val intent=Intent(this,
+                SearchResultActivity::class.java)
             intent.putExtra("words",data)
             startActivity(intent)
         }

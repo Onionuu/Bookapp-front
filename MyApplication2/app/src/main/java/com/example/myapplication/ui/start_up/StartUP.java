@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.myapplication.MainActivity1;
+import com.example.myapplication.ui.activity.MainActivity1;
 import com.example.myapplication.R;
 
 /**

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.fastjson.JSONArray
+import com.example.myapplication.Goods
+import com.example.myapplication.ui.adapter.GoodsAdapter
+import com.example.myapplication.R
 import com.example.myapplication.model.ResearchResultModel
 import kotlinx.android.synthetic.main.search_result.*
 import okhttp3.ResponseBody
@@ -83,12 +86,21 @@ class SearchResultActivity: AppCompatActivity() {
                                 }
 
 
-                                val goods= Goods(title,imagepath,price)
+                                val goods= Goods(
+                                    title,
+                                    imagepath,
+                                    price
+                                )
                                 goodsList.add(goods)
                             }
                         }
                     }
-                    val adapter = GoodsAdapter(this@SearchResultActivity, R.layout.goods_item, goodsList)
+                    val adapter =
+                        GoodsAdapter(
+                            this@SearchResultActivity,
+                            R.layout.goods_item,
+                            goodsList
+                        )
                     listView.adapter = adapter
                 }
 

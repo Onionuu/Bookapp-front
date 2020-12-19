@@ -1,16 +1,14 @@
-package com.example.myapplication
+package com.example.myapplication.ui.adapter
 
-import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myapplication.R
 import com.example.myapplication.model.Goods
-import java.io.File
 
 class GoodsAdapter1 (private var goodslist:MutableList<Goods>):RecyclerView.Adapter<GoodsAdapter1.Viewholder>(){
     inner class Viewholder(view:View):RecyclerView.ViewHolder(view){//将各个组件与数据进行绑定

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,15 @@ import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.myapplication.JWebSocketClient
+import com.example.myapplication.ui.fragment.MessageFragment
+import com.example.myapplication.R
 import com.example.myapplication.ui.mine.MineFragment
 
 import com.example.myapplication.ui.shouye.IndexFragment
 import kotlinx.android.synthetic.main.activity_main1.*
+import java.lang.Exception
+import java.net.URI
 
 class MainActivity1 :AppCompatActivity() {
 
@@ -34,7 +39,14 @@ class MainActivity1 :AppCompatActivity() {
         super.onCreate(savedInstanceState)
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main1)
-
+//        val ws= JWebSocketClient(URI("ws://echo.websocket.org"))
+//        Thread{
+//            try {
+//                ws.connectBlocking()
+//            }catch (e: Exception){
+//                e.printStackTrace()
+//            }
+//        }.start()
         initView()
         id_home.setOnClickListener(){
             transview(syFragment!!, VIEW_SHOUYE_INDEX)
@@ -46,7 +58,8 @@ class MainActivity1 :AppCompatActivity() {
         //绑定四个单选框
         syFragment = IndexFragment.getNewInstance()
         //sqFragment = SheQuFragment.getNewInstance()
-        xxFragment = MessageFragment.getNewInstance()
+        xxFragment =
+            MessageFragment.getNewInstance()
         wdFragment = MineFragment.getNewInstance()
         //初始化选择，并选择首页作为默认选项
         transview(syFragment , VIEW_SHOUYE_INDEX)

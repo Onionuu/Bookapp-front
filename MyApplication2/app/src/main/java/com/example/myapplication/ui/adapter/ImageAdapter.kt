@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.ui.adapter
 
 import android.content.Context
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myapplication.R
 import org.beahugs.imagepicker.utils.ImageUtil
 import org.beahugs.imagepicker.utils.UriUtils
 import org.beahugs.imagepicker.utils.VersionUtils

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.ui.adapter
 
 import android.app.Activity
 import android.graphics.BitmapFactory
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.myapplication.Goods
+import com.example.myapplication.R
 import java.io.File
 
 class GoodsAdapter(activity: Activity, val resourceId: Int, data: List<Goods>) : ArrayAdapter<Goods>(activity, resourceId, data) {

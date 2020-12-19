@@ -1,13 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.ui.activity
 
 
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.view.Window
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.qqtheme.framework.picker.OptionPicker
 import cn.qqtheme.framework.util.ConvertUtils
 import cn.qqtheme.framework.widget.WheelView
+import com.example.myapplication.ui.adapter.ImageAdapter
+import com.example.myapplication.MainActivity
+import com.example.myapplication.R
 
 import com.example.myapplication.model.EditPostModel
 
@@ -64,7 +65,9 @@ class PublishTestActivity : AppCompatActivity() {
                 .setSingle(false)  //设置是否单选
                 .canPreview(true) //是否点击放大图片查看,，默认为true
                 .setMaxSelectCount(9)//如果设置大于0
-                .start(this, REQUEST_CODE); // 打开相册
+                .start(this,
+                    REQUEST_CODE
+                ); // 打开相册
         }
         sortTx.setOnClickListener(){
             onOptionPicker()
@@ -115,7 +118,8 @@ class PublishTestActivity : AppCompatActivity() {
                 if (list!=null){
                     val status=jsonObject.getString("status")
                     if (status=="success"){
-                        val intent=Intent(this@PublishTestActivity,MainActivity::class.java)
+                        val intent=Intent(this@PublishTestActivity,
+                            MainActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(this@PublishTestActivity, "发布成功", Toast.LENGTH_SHORT).show()
                     }

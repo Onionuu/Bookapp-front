@@ -9,28 +9,17 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.alibaba.fastjson.JSONArray
 import com.example.myapplication.*
-import com.example.myapplication.ViewModel.IndexViewModel
+import com.example.myapplication.viewModel.IndexViewModel
 import com.example.myapplication.model.Goods
-import com.example.myapplication.model.ScreenSearchModel
-import com.example.myapplication.util.BaseUtil
+import com.example.myapplication.ui.activity.SearchResultActivity
+import com.example.myapplication.ui.adapter.GoodsAdapter1
 import com.youth.banner.Banner
-import kotlinx.android.synthetic.main.activity_main.*
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.await
-import java.io.ByteArrayInputStream
-import java.io.File
-import java.io.FileOutputStream
 
 
 class IndexFragment:Fragment() {
@@ -39,24 +28,19 @@ class IndexFragment:Fragment() {
     lateinit var indexViewModel:IndexViewModel
     lateinit var adapter1: GoodsAdapter1
     lateinit var banner: Banner
-    private val goodslist=ArrayList<Goods>()
 
     lateinit var recyclerView : RecyclerView
-    var city=""
-    var university=""
-    var keywords=""
-    val num=30
-    val index=0
-    var sort=""
+//    var city=""
+//    var university=""
+//    var keywords=""
+//    val num=30
+//    val index=0
+//    var sort=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
         }
-
-
-
-
 
     companion object{
         var indexFragment: IndexFragment? = null
@@ -64,9 +48,13 @@ class IndexFragment:Fragment() {
             if (indexFragment == null) {
                 indexFragment = IndexFragment()
             }
-            return IndexFragment()
+            return indexFragment!!
         }
     }
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -119,7 +107,9 @@ class IndexFragment:Fragment() {
         recyclerView= view!!.findViewById(R.id.index_recycleview)
         val layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager=layoutManager
-        adapter1=GoodsAdapter1(indexViewModel.goodslist.value?: ArrayList())
+        adapter1= GoodsAdapter1(
+            indexViewModel.goodslist.value ?: ArrayList()
+        )
         recyclerView.adapter=adapter1
         val search=view?.findViewById(R.id.index_search) as EditText
         search.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event -> //当actionId == XX_SEND 或者 XX_DONE时都触发

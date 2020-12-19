@@ -1,13 +1,13 @@
-package com.example.myapplication
+package com.example.myapplication.ui.activity
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.myapplication.R
 import com.example.myapplication.model.RegisterModel
 import kotlinx.android.synthetic.main.activity_register.*
 import retrofit2.Callback
@@ -54,11 +54,12 @@ class RegisterActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 val list=(response.body()?.string())
-                val jsonObject= JSONObject(list)
+                 val jsonObject= JSONObject(list)
                 if (list!=null){
                     val status=jsonObject.getString("status")
                     if (status=="success"){
-                        val intent= Intent(this@RegisterActivity,LoginActivity::class.java)
+                        val intent= Intent(this@RegisterActivity,
+                            LoginActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(this@RegisterActivity, "注册成功", Toast.LENGTH_SHORT).show()
                     }

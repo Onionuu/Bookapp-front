@@ -97,6 +97,8 @@
         android:background="@color/btn_pressed_color"
         android:text="@string/action_sign_in"
         android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
