@@ -87,6 +87,7 @@ class SearchResultActivity: AppCompatActivity() {
 
 
                                 val goods= Goods(
+                                    goodsid,
                                     title,
                                     imagepath,
                                     price

@@ -101,10 +101,11 @@ class IndexFragment:Fragment() {
         banner.setImages(images)
         //banner设置方法全部调用完毕时最后调用
         //banner设置方法全部调用完毕时最后调用
-        banner.start()
+         banner.start()
 
 
-       indexViewModel.getData()
+        thread { indexViewModel.getData() }.run()
+
 
         recyclerView= view!!.findViewById(R.id.index_recycleview)
         val layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)

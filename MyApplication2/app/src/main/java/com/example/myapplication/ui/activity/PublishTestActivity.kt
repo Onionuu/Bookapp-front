@@ -15,6 +15,7 @@ import cn.qqtheme.framework.util.ConvertUtils
 import cn.qqtheme.framework.widget.WheelView
 import com.example.myapplication.ui.adapter.ImageAdapter
 import com.example.myapplication.MainActivity
+import com.example.myapplication.MyApplication
 import com.example.myapplication.R
 
 import com.example.myapplication.model.EditPostModel
@@ -118,10 +119,11 @@ class PublishTestActivity : AppCompatActivity() {
                 if (list!=null){
                     val status=jsonObject.getString("status")
                     if (status=="success"){
+                        Toast.makeText(this@PublishTestActivity, "发布成功", Toast.LENGTH_SHORT).show()
                         val intent=Intent(this@PublishTestActivity,
                             MainActivity::class.java)
                         startActivity(intent)
-                        Toast.makeText(this@PublishTestActivity, "发布成功", Toast.LENGTH_SHORT).show()
+
                     }
                 }
             }
@@ -133,6 +135,7 @@ class PublishTestActivity : AppCompatActivity() {
         val picker = OptionPicker(
             this, ConvertUtils.toString(assets.open("sort.txt")).split(",")
         )
+        picker.setHeight(500)
         picker.setCanceledOnTouchOutside(false)
         picker.setDividerRatio(WheelView.DividerConfig.FILL)
         picker.setShadowColor(Color.RED, 40)

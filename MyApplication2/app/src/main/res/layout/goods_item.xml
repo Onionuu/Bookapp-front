@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="150dp">
 
     <ImageView
         android:id="@+id/GoodsImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:scaleType="center"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"/>
@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:gravity="center">
 
 
         <TextView
@@ -23,19 +24,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="13dp"
-            android:textSize="16dp"
-            android:layout_weight="2"/>
+            android:gravity="center|left"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:text="计算机组成原理机械工业出版社九成新"
+            />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="九成新"
+            android:textSize="10dp"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:id="@+id/GoodsPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="13sp"
-
+            android:textSize="18sp"
+            android:textColor="@color/orange"
+            android:text="￥13"
+            android:layout_marginLeft="5dp"
             android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"/>
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="广东广州"
+            android:textSize="10dp"
+            android:layout_marginLeft="5dp"/>
+
     </LinearLayout>
 
 </LinearLayout>

@@ -7,11 +7,11 @@ public class Photo {
     /**
      * 商品类，就是首页的商品的显示的类
      */
-    private Uri photoID;
-    public Photo(Uri photoImageID){
+    private String photoID;
+    public Photo(String photoImageID){
         photoID=photoImageID;
     }
-    public Uri getPhotoPhotoID(){
+    public String getPhotoPhotoID(){
         return photoID;
     }
 }

@@ -31,4 +31,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("SendMsg")
     fun sendMsg(@FieldMap msg: Map<String,String>):Call<ResponseBody>
+
+    @GET("detailServlet")
+    fun getDetail(@Query("goodsid") goodsid:String):Call<ResponseBody>
 }

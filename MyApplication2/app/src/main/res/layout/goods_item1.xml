@@ -22,7 +22,7 @@
         android:textSize="16dp"
         android:layout_marginLeft="10dp"
         android:text="@{Goods.name}"
-        android:gravity="center"
+        android:gravity="left"
         android:textColor="@color/black"
         />
 

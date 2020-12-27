@@ -93,7 +93,7 @@ class IndexViewModel :  ViewModel(){
                                 try {
                                     file.createNewFile()
                                     val bufferedInputStream= ByteArrayInputStream(primaryImage)
-                                    val fileOutputStream = FileOutputStream(file);
+                                    val fileOutputStream = FileOutputStream(file)
                                     var i:Int=bufferedInputStream.read()
                                     while (i!=-1){
                                         fileOutputStream.write(i)

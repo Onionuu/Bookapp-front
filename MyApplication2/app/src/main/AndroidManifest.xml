@@ -35,7 +35,11 @@
             android:name=".ui.activity.MainActivity1"
             android:label="index"
             tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -63,11 +67,7 @@
             android:name=".ui.activity.DetailActivity"
             android:label="chat"
             tools:ignore="Instantiatable">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <service

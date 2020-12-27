@@ -95,7 +95,7 @@ class MessageFragment:Fragment() {
 
         val prefs= context?.getSharedPreferences("ui.activity.LoginActivity", Context.MODE_PRIVATE)
         val token= prefs?.getString("token","")
-        if (token==""){
+        if (token==""||token==null){
             val intent=Intent(context,LoginActivity::class.java)
             intent.flags=Intent.FLAG_ACTIVITY_NEW_TASK
             context?.startActivity(intent)

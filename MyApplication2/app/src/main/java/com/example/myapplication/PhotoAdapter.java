@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.RoundTransform;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -42,7 +43,9 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Photo photo=photoList.get(position);
-        Picasso.get().load(photo.getPhotoPhotoID()).placeholder(R.mipmap.loading).transform(new RoundTransform(10,0)).into(holder.photo);
+        File file=new File(photo.getPhotoPhotoID());
+        System.out.println(photo.getPhotoPhotoID());
+        Picasso.get().load(file).placeholder(R.mipmap.loading).transform(new RoundTransform(10,0)).into(holder.photo);
     }
 
 
