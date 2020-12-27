@@ -2,14 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background"
-    android:padding="10dp">
+    android:padding="10dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        >
 
         <ImageView
             android:id="@+id/Head"
@@ -24,7 +25,8 @@
         <LinearLayout
             android:layout_width="238dp"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/Name"
@@ -45,21 +47,43 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:text="上一条记录少时诵诗书"
                 android:textColor="@color/darkgray"
                 android:textSize="15dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="@color/theme_color"
+                />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
         <TextView
             android:id="@+id/time"
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:textColor="@color/darkgray"
             android:text="14:00"
-            android:gravity="right"/>
+            android:gravity="top|center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="0.5dp"
+                android:background="@color/theme_color"
+                />
+
+        </LinearLayout>
     </LinearLayout>
+
 
 
 </FrameLayout>
