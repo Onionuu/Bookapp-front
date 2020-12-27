@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -32,7 +33,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activity.MainActivity1"
-            android:label="index">
+            android:label="index"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,20 +42,25 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.RegisterActivity" />
+        <activity android:name=".ui.activity.RegisterActivity"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            tools:ignore="Instantiatable" />
 
         <activity
             android:name=".ui.activity.SearchResultActivity"
-            android:label="search" />
+            android:label="search"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".ui.activity.PublishTestActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".ui.activity.ChatActivity"
-            android:label="chat">
+            android:label="chat"
+            tools:ignore="Instantiatable">
 
         </activity>
         <service

@@ -2,6 +2,7 @@ package com.example.myapplication.ui.shouye
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,7 @@ import com.example.myapplication.model.Goods
 import com.example.myapplication.ui.activity.SearchResultActivity
 import com.example.myapplication.ui.adapter.GoodsAdapter1
 import com.youth.banner.Banner
+import kotlin.concurrent.thread
 
 
 class IndexFragment:Fragment() {
@@ -38,7 +40,7 @@ class IndexFragment:Fragment() {
 //    var sort=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+    setupViewModel()
 
         }
 
@@ -102,13 +104,13 @@ class IndexFragment:Fragment() {
         banner.start()
 
 
-        setupViewModel()
-        indexViewModel.getData()
+       indexViewModel.getData()
+
         recyclerView= view!!.findViewById(R.id.index_recycleview)
         val layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager=layoutManager
         adapter1= GoodsAdapter1(
-            indexViewModel.goodslist.value ?: ArrayList()
+            indexViewModel._goodslist.value ?: ArrayList()
         )
         recyclerView.adapter=adapter1
         val search=view?.findViewById(R.id.index_search) as EditText
@@ -130,10 +132,13 @@ class IndexFragment:Fragment() {
 
     private fun setupViewModel(){
         indexViewModel= ViewModelProviders.of(this).get(IndexViewModel::class.java)
-        indexViewModel.goodslist.observe(this, Observer<MutableList<Goods>> { adapter1.update(it) })
+
+        indexViewModel._goodslist.observe(this, Observer<MutableList<Goods>> {
+            Log.w("TAG", "setupViewModel: observer"+it.toString())
+            adapter1.update(it) })
     }
-    override fun onResume() {
-        super.onResume()
-        indexViewModel.getData()
-    }
+//    override fun onResume() {
+//        super.onResume()
+//        indexViewModel.getData()
+//    }
 }

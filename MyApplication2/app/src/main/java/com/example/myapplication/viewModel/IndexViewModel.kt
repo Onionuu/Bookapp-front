@@ -1,5 +1,6 @@
 package com.example.myapplication.viewModel
 
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,6 +18,7 @@ import retrofit2.Response
 import java.io.ByteArrayInputStream
 import java.io.File
 import java.io.FileOutputStream
+import kotlin.concurrent.thread
 
 class IndexViewModel :  ViewModel(){
     private var city=""
@@ -26,7 +28,9 @@ class IndexViewModel :  ViewModel(){
     val index=0
     var sort=""
 
-    private var _goodslist=MutableLiveData<MutableList<Goods>>().apply {value= ArrayList() }
+     var _goodslist=MutableLiveData<MutableList<Goods>>().apply {value= ArrayList()
+
+    }
     val goodslist:LiveData<MutableList<Goods>> = _goodslist
 
     private val _isViewLoading = MutableLiveData<Boolean>()
@@ -84,7 +88,7 @@ class IndexViewModel :  ViewModel(){
                             var imagepath=context.getString(R.string.search_result_image_path)
                             imagepath= "$imagepath$goodsid.$imagetype"
                             val file=
-                                File(imagepath);
+                                File(imagepath)
                             if(!file.exists()){
                                 try {
                                     file.createNewFile()
@@ -102,11 +106,14 @@ class IndexViewModel :  ViewModel(){
                                     e.printStackTrace()
                                 }
                             }
+                            println(imagepath)
                             val goods= Goods(title,price,imagepath)
                             list.add(goods)
 
                         }
-                        _goodslist.value?.addAll(list)
+                        _goodslist.value=(list)
+                        _goodslist.postValue(_goodslist.value)
+                        Log.e("TAG", "onResponse: "+list.toString() )
                     }
                 }
             }

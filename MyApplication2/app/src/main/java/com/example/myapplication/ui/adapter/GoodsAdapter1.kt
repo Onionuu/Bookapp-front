@@ -17,7 +17,7 @@ class GoodsAdapter1 (private var goodslist:MutableList<Goods>):RecyclerView.Adap
         val goodsPrice: TextView = view.findViewById(R.id.GoodsPrice1)
         fun bind(goods: Goods){
             goodsName.text=goods.title.capitalize()
-            goodsPrice.text=goods.price.capitalize()
+            goodsPrice.text="￥"+goods.price.capitalize()
             Glide.with(goodsImage.context).load(goods.image).into(goodsImage)
         }
     }

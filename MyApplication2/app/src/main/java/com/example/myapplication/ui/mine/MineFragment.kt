@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.mine
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.example.myapplication.ui.shouye.IndexFragment
+import kotlinx.android.synthetic.main.mine.*
 
 class MineFragment:Fragment() {
 
@@ -35,5 +37,12 @@ class MineFragment:Fragment() {
         }
         return rootView
         //return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val prefs= context?.getSharedPreferences("ui.activity.LoginActivity", Context.MODE_PRIVATE)
+        val logname= prefs?.getString("logname","")
+        user_name.text=logname
     }
 }
