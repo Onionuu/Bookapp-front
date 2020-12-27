@@ -40,7 +40,8 @@
     </RelativeLayout>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="9">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -119,14 +120,26 @@
                         android:textColor="@color/red"
                         android:textSize="17sp" />
                     <TextView
-                        android:id="@+id/good_detail_origin_money"
+                        android:id="@+id/good_detail_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/color_999999"
                         android:textSize="17sp"
                         android:layout_marginStart="10dp"
-                        android:text="包邮"/>
+                        android:text="广东广州 华南师范大学"/>
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/good_title"
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:lineSpacingExtra="1.2dp"
+                    android:textStyle="bold"
+                    android:text="包邮C程序设计第5版谭浩强"/>
+
 
                 <TextView
                     android:id="@+id/good_detail_content"
@@ -135,8 +148,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="25sp"
-                    android:lineSpacingExtra="1.2dp"
-                    android:text="包邮C程序设计 第5版 谭浩强 \n课本+习题 共两本 送视频课\n可能拍下都有货\n有问题私聊，质量看照片\n满意直接下单\n交易支持当面交易、邮寄"/>
+                    android:textStyle="normal"
+                    android:text="课本+习题 共两本 送视频课\n可能拍下都有货\n有问题私聊，质量看照片\n满意直接下单\n交易支持当面交易、邮寄"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/good_detail_recycle"
@@ -147,4 +160,29 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:gravity="right"
+        >
+
+        <Button
+            android:id="@+id/connect_seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="联系卖家" />
+
+        <Button
+            android:id="@+id/favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="收藏商品" />
+
+    </LinearLayout>
 </LinearLayout>

@@ -93,6 +93,8 @@ dependencies {
    // implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelPicker:2.0.0'
     implementation project(':WheelPicker')
 
+    //头像模块
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 
 }
