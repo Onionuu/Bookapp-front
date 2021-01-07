@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.example.myapplication.ui.shouye.IndexFragment
+import kotlinx.android.synthetic.main.fragment_setting.*
 import kotlinx.android.synthetic.main.mine.*
 
 class MineFragment:Fragment() {
@@ -59,8 +60,6 @@ class MineFragment:Fragment() {
             }else{
                 Toast.makeText(context, "注销失败", Toast.LENGTH_SHORT).show()
             }
-
         }
-
     }
 }
