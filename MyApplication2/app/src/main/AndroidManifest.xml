@@ -25,16 +25,16 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_config"
-        android:roundIcon="@mipmap/logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activity.MainActivity1"
-            android:label="index"
-            tools:ignore="Instantiatable">
+            tools:ignore="Instantiatable"
+            android:label="淘书叔">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -67,9 +67,9 @@
             android:name=".ui.activity.DetailActivity"
             android:label="chat"
             tools:ignore="Instantiatable">
-
-
         </activity>
+
+
         <service
             android:name=".JWebSocketClientService"
             android:enabled="true"

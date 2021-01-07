@@ -58,10 +58,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="60dp"
+                    android:layout_width="40dp"
                     android:id="@+id/good_detail_photo"
                     android:background="@drawable/headimage2"
-                    android:layout_height="60dp"
+                    android:layout_height="40dp"
                     android:layout_margin="10dp"/>
                 <TextView
                     android:id="@+id/good_detail_user_name"
@@ -71,7 +71,7 @@
                     android:text="猩猩的救兵2"
                     android:textColor="@color/black"
                     android:padding="10dp"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:layout_gravity="center"
                     />
                 <ImageView
@@ -118,7 +118,7 @@
                         android:layout_marginStart="10dp"
                         android:text="￥25"
                         android:textColor="@color/red"
-                        android:textSize="17sp" />
+                        android:textSize="20sp" />
                     <TextView
                         android:id="@+id/good_detail_address"
                         android:layout_width="match_parent"
@@ -135,7 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="20sp"
                     android:lineSpacingExtra="1.2dp"
                     android:textStyle="bold"
                     android:text="包邮C程序设计第5版谭浩强"/>
@@ -147,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
+                    android:textSize="15sp"
                     android:textStyle="normal"
                     android:text="课本+习题 共两本 送视频课\n可能拍下都有货\n有问题私聊，质量看照片\n满意直接下单\n交易支持当面交易、邮寄"/>
 
@@ -163,25 +163,85 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_gravity="right"
         android:gravity="right"
         >
 
-        <Button
-            android:id="@+id/connect_seller"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                app:srcCompat="@drawable/praise2" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="点赞"
+                android:textSize="12dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                app:srcCompat="@drawable/comment1" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:text="评论"
+                android:textSize="12dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/connect_seller"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_circle_shape1"
+            android:layout_marginRight="10dp"
             android:text="联系卖家" />
 
         <Button
             android:id="@+id/favourite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/button_circle_shape"
             android:text="收藏商品" />
 
     </LinearLayout>

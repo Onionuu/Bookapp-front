@@ -86,12 +86,28 @@ class IndexViewModel :  ViewModel(){
                             val title=jsonObject.getString("title")
                             val price=jsonObject.getString("price")
                             var imagepath=context.getString(R.string.search_result_image_path)
+//                            var path=File(imagepath)
+//                            if(!path.exists()){
+//                                Toast.makeText(context, "pathnotexists", Toast.LENGTH_SHORT).show()
+//                                if(path.mkdir()){
+//                                    Toast.makeText(context, "mkdirsuccess", Toast.LENGTH_SHORT).show()
+//                                }else{
+//                                    Toast.makeText(context, "mkdirfail", Toast.LENGTH_SHORT).show()
+//                                }
+//                            }else{
+//                                Toast.makeText(context, "pathexists", Toast.LENGTH_SHORT).show()
+//                            }
                             imagepath= "$imagepath$goodsid.$imagetype"
                             val file=
                                 File(imagepath)
                             if(!file.exists()){
                                 try {
-                                    file.createNewFile()
+                                    if (file.createNewFile()){
+                                        Toast.makeText(context, "createsuccess", Toast.LENGTH_SHORT).show()
+                                    }else{
+                                        Toast.makeText(context, "createfail", Toast.LENGTH_SHORT).show()
+                                    }
+
                                     val bufferedInputStream= ByteArrayInputStream(primaryImage)
                                     val fileOutputStream = FileOutputStream(file)
                                     var i:Int=bufferedInputStream.read()
@@ -104,6 +120,7 @@ class IndexViewModel :  ViewModel(){
                                     fileOutputStream.close()
                                 }catch (e: Exception){
                                     e.printStackTrace()
+                                    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()
                                 }
                             }
                             println(imagepath)
