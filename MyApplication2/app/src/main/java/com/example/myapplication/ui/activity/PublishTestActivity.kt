@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.activity
 
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -93,7 +94,13 @@ class PublishTestActivity : AppCompatActivity() {
     fun publish(){
         val editPostModel= EditPostModel()
         var  partMap = HashMap<String,RequestBody>()
-        partMap["publisherid"] = "4".toRequestBody()
+        val prefs= this?.getSharedPreferences("ui.activity.LoginActivity", Context.MODE_PRIVATE)
+        val logname= prefs?.getString("logname","")
+        if (logname==""||logname==null){
+            Toast.makeText(this, "请先登录", Toast.LENGTH_SHORT).show()
+            return
+        }
+        partMap["publisherid"] = logname!!.toRequestBody()
         partMap["title"] = titleText.text.toString().toRequestBody()
         partMap["detail"] = detailText.text.toString().toRequestBody()
         partMap["price"] = priceText.text.toString().toRequestBody()
@@ -120,9 +127,10 @@ class PublishTestActivity : AppCompatActivity() {
                     val status=jsonObject.getString("status")
                     if (status=="success"){
                         Toast.makeText(this@PublishTestActivity, "发布成功", Toast.LENGTH_SHORT).show()
-                        val intent=Intent(this@PublishTestActivity,
-                            MainActivity::class.java)
-                        startActivity(intent)
+//                        val intent=Intent(this@PublishTestActivity,
+//                            MainActivity1::class.java)
+//                        startActivity(intent)
+                        finish()
 
                     }
                 }

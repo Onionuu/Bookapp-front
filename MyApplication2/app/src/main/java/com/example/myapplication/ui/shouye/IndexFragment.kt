@@ -118,7 +118,9 @@ class IndexFragment:Fragment() {
         search.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event -> //当actionId == XX_SEND 或者 XX_DONE时都触发
             //或者event.getKeyCode == ENTER 且 event.getAction == ACTION_DOWN时也触发
             //注意，这是一定要判断event != null。因为在某些输入法上会返回null。
-            if (actionId == EditorInfo.IME_ACTION_SEND || actionId == EditorInfo.IME_ACTION_DONE || event != null && KeyEvent.KEYCODE_ENTER == event.keyCode && KeyEvent.ACTION_DOWN == event.action
+            println(actionId)
+           // println(event.toString())
+            if (actionId == EditorInfo.IME_ACTION_SEND || actionId == EditorInfo.IME_ACTION_DONE ||actionId==EditorInfo.IME_ACTION_NEXT|| event != null && KeyEvent.KEYCODE_ENTER == event.keyCode && KeyEvent.ACTION_DOWN == event.action
             ) {
                 //处理事件
 

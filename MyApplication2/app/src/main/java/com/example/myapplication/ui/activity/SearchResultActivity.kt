@@ -2,11 +2,13 @@ package com.example.myapplication.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Environment
 import android.view.Window
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.fastjson.JSONArray
 import com.example.myapplication.Goods
+import com.example.myapplication.MyApplication
 import com.example.myapplication.ui.adapter.GoodsAdapter
 import com.example.myapplication.R
 import com.example.myapplication.model.ResearchResultModel
@@ -63,7 +65,8 @@ class SearchResultActivity: AppCompatActivity() {
                                 val goodsid=jsonObject.getString("goodsid")
                                 val title=jsonObject.getString("title")
                                 val price=jsonObject.getString("price")
-                                var imagepath=getString(R.string.search_result_image_path)
+                                var imagepath=
+                                    MyApplication.context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.absolutePath
                                 imagepath= "$imagepath$goodsid.$imagetype"
                                 val file=
                                     File(imagepath);

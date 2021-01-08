@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.MyApplication
 import com.example.myapplication.R
-import com.example.myapplication.model.Goods
 import com.example.myapplication.model.Msg
 import com.example.myapplication.ui.activity.ChatActivity
 

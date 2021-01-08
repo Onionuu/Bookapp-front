@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.activity
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -40,6 +41,11 @@ class DetailActivity : AppCompatActivity() {
         val list=ArrayList<Photo>()
         list.add(Photo(firstImage))
         val model=DetailModel()
+        connect_seller.setOnClickListener(){
+            val intent= Intent(this,ChatActivity::class.java)
+            intent.putExtra("name",publisherid)
+            startActivity(intent)
+        }
         model.getDetail(goodsid!!).enqueue(object: Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 t.printStackTrace()

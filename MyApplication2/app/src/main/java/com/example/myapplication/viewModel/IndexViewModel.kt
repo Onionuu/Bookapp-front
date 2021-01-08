@@ -1,5 +1,6 @@
 package com.example.myapplication.viewModel
 
+import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
@@ -54,6 +55,7 @@ class IndexViewModel :  ViewModel(){
         map["num"]=num.toString()
         map["index"]=index.toString()
         map["sort"]=sort
+
         model.getScreenSearchResult(map).enqueue(object : Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(context, "加载失败了诶～", Toast.LENGTH_SHORT).show()
@@ -85,27 +87,29 @@ class IndexViewModel :  ViewModel(){
                             val goodsid=jsonObject.getString("goodsid")
                             val title=jsonObject.getString("title")
                             val price=jsonObject.getString("price")
-                            var imagepath=context.getString(R.string.search_result_image_path)
-//                            var path=File(imagepath)
-//                            if(!path.exists()){
-//                                Toast.makeText(context, "pathnotexists", Toast.LENGTH_SHORT).show()
-//                                if(path.mkdir()){
-//                                    Toast.makeText(context, "mkdirsuccess", Toast.LENGTH_SHORT).show()
-//                                }else{
-//                                    Toast.makeText(context, "mkdirfail", Toast.LENGTH_SHORT).show()
-//                                }
-//                            }else{
-//                                Toast.makeText(context, "pathexists", Toast.LENGTH_SHORT).show()
-//                            }
+                            //var imagepath=context.getString(R.string.search_result_image_path)
+                            var imagepath= context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.absolutePath
+                            var path=File(imagepath)
+                            if(!path.exists()){
+                                if (path.mkdirs()){
+                                    println("successssssssssssssssss")
+                                }else{
+                                    println("failllllllllllllll")
+                                }
+
+
+
+
+                            }
                             imagepath= "$imagepath$goodsid.$imagetype"
                             val file=
                                 File(imagepath)
                             if(!file.exists()){
                                 try {
                                     if (file.createNewFile()){
-                                        Toast.makeText(context, "createsuccess", Toast.LENGTH_SHORT).show()
+                                        //Toast.makeText(context, "createsuccess", Toast.LENGTH_SHORT).show()
                                     }else{
-                                        Toast.makeText(context, "createfail", Toast.LENGTH_SHORT).show()
+                                        //Toast.makeText(context, "createfail", Toast.LENGTH_SHORT).show()
                                     }
 
                                     val bufferedInputStream= ByteArrayInputStream(primaryImage)
@@ -120,11 +124,11 @@ class IndexViewModel :  ViewModel(){
                                     fileOutputStream.close()
                                 }catch (e: Exception){
                                     e.printStackTrace()
-                                    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()
                                 }
                             }
                             println(imagepath)
-                            val goods= Goods(title,price,imagepath)
+                            val goods= Goods(goodsid,title,price,imagepath)
                             list.add(goods)
 
                         }

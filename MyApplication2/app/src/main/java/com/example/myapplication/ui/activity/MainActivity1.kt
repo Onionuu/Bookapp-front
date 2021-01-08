@@ -1,6 +1,9 @@
 package com.example.myapplication.ui.activity
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -15,6 +18,7 @@ import com.example.myapplication.ui.mine.MineFragment
 
 import com.example.myapplication.ui.shouye.IndexFragment
 import kotlinx.android.synthetic.main.activity_main1.*
+import org.beahugs.imagepicker.ImagePicker.REQUEST_CODE
 import java.lang.Exception
 import java.net.URI
 
@@ -51,7 +55,26 @@ class MainActivity1 :AppCompatActivity() {
         id_home.setOnClickListener(){
             transview(syFragment!!, VIEW_SHOUYE_INDEX)
         }
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 
+            var writePermission = checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+            if(writePermission != PackageManager.PERMISSION_GRANTED){
+
+                requestPermissions( {Manifest.permission.WRITE_EXTERNAL_STORAGE} as Array<out String>,1);
+
+
+
+            }
+
+        }
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initView()
     }
     private fun initView() {
         radioGroup = findViewById(R.id.id_navcontent)
