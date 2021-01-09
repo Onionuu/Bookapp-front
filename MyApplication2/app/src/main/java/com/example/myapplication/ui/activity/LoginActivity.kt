@@ -52,10 +52,11 @@ class LoginActivity :AppCompatActivity(){
                             editor.putString("token",token)
                             editor.putString("logname", logname)
                             editor.apply()
-                            val intent= Intent(this@LoginActivity,
-                                MainActivity1::class.java)
-                            startActivity(intent)
+//                            val intent= Intent(this@LoginActivity,
+//                                MainActivity1::class.java)
+//                            startActivity(intent)
                             Toast.makeText(this@LoginActivity, "登录成功", Toast.LENGTH_SHORT).show()
+                            finish()
                         }
                         else{
                             Toast.makeText(this@LoginActivity, "用户名或密码错误", Toast.LENGTH_SHORT).show()

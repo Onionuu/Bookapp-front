@@ -61,7 +61,7 @@ class MainActivity1 :AppCompatActivity() {
 
             if(writePermission != PackageManager.PERMISSION_GRANTED){
 
-                requestPermissions( {Manifest.permission.WRITE_EXTERNAL_STORAGE} as Array<out String>,1);
+                requestPermissions( arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),1);
 
 
 
